@@ -1,3 +1,49 @@
+/* Basic styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+    .resume-card, .project-card {
+        height: auto;
+        width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .project-nav ul {
+        flex-direction: column;
+    }
+
+    .project-nav a {
+        text-align: center;
+        padding: 10px;
+    }
+
+    .resume-card, .project-card {
+        width: 100%;
+    }
+
+    .resume-title, .resume-date, .resume-desc {
+        margin-left: 15px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-card, .resume-card {
+        padding: 10px;
+    }
+
+    .page-title {
+        font-size: 48px;
+    }
+}
+
+/* Other existing styles */
 #main-logo {
     height: 150px;
     width: 160px;
@@ -6,7 +52,14 @@
 
 .nav-item {
     background-color: transparent;
+    font-size: 20px;
 }
+
+.navbar-nav .nav-link {
+    font-size: 18px;
+}
+
+
 * {
     background-color: #092635;
     color: #9EC8B9;
@@ -72,15 +125,6 @@ body {
     opacity: 0;
 }
 
-.page-title {
-    opacity: 0;
-}
-
-.container h1:nth-child(1) {
-    animation: fadeIn .9 ease-in-out forwards;
-    animation-delay: 2s;  
-}
-
 .container p:nth-child(2) {
     animation: fadeIn .3s ease-in-out forwards;
     animation-delay: 1s;  
@@ -88,11 +132,16 @@ body {
 
 .container img:nth-child(3) {
     animation: fadeIn .3s ease-in-out forwards;
+    animation-delay: 1.5s; 
 }
 
 a {
     color: #9EC8B9;
     scroll-behavior: smooth;
+}
+
+li {
+    color: #9EC8B9;
 }
 
 
@@ -105,7 +154,7 @@ a {
   }
 
 .page-title {
-    font-size: 128px;
+    font-size: 96px;
 }
 
 #main-body-logo {
@@ -190,6 +239,34 @@ ul#menu li a {
     text-decoration: none;
 }
 
+
+ul#proj_menu {
+    list-style: none;
+}
+ul#proj_menu li {
+    display: inline-block;
+    padding: .3em .5em;
+    position:relative;
+    overflow: hidden;
+}
+ul#proj_menu li::before {
+    position: absolute;
+    display: block;
+    content: '';
+    bottom: 0;
+    left: -100%;
+    width: 100%;
+    height: 5px;
+    transition: 0.4s;
+    background-color: #1A3F52;
+}
+ul#proj_menu li.proj_curr_active::before,
+ul#proj_menu li:hover::before {
+    left:0%;
+}
+ul#proj_menu li a {
+    text-decoration: none;
+}
 .resume-card {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     height: 550px;
@@ -244,33 +321,6 @@ ul#menu li a {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-ul#proj_menu {
-    list-style: none;
-}
-ul#proj_menu li {
-    display: inline-block;
-    padding: .3em .5em;
-    position:relative;
-    overflow: hidden;
-}
-ul#proj_menu li::before {
-    position: absolute;
-    display: block;
-    content: '';
-    bottom: 0;
-    left: -100%;
-    width: 100%;
-    height: 5px;
-    transition: 0.4s;
-    background-color: #1A3F52;
-}
-ul#proj_menu li.curr_active::before,
-ul#proj_menu li:hover::before {
-    left:0%;
-}
-ul#proj_menu li a {
-    text-decoration: none;
-}
 .resume-title {
     position: relative;
     margin-left: 30px;
@@ -286,6 +336,49 @@ ul#proj_menu li a {
     top: 80px;
     padding: 20px;
 }
+
+.contact-me {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: #9EC8B9;
+    background-color: #092635;
+    border: 2px solid #1A3F52;
+    border-radius: 40px;
+    padding: 16px 24px 16px 28px;
+    transform: translate(0px, 0px) rotate(0deg);
+    transition: 0.2s;
+    text-decoration: none;
+}
+
+.contact-me:hover {
+    color: #092635;
+    background-color: #9EC8B9;
+    text-decoration: none;
+}
+
+.contact-me:active {
+    box-shadow: none;
+}
+
+.contact-me a {
+    color: inherit; /* Ensure the link color inherits from the parent */
+    text-decoration: none; /* Remove underline from the link */
+}
+
+.contact-me a:hover {
+    color: inherit; /* Maintain inherited color on hover */
+    text-decoration: none; /* Ensure no underline on hover */
+}
+
+
+
 
 
 @keyframes fadeIn {
@@ -314,6 +407,4 @@ ul#proj_menu li a {
       transform: translateY(0);
     }
   
-  }
-  
-
+}

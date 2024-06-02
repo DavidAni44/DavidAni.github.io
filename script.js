@@ -1,180 +1,72 @@
-window.scroll({
-    top: 2500, 
-    left: 0, 
-    behavior: 'smooth'
-  });
-  
-  // Scroll certain amounts from current position 
-  window.scrollBy({ 
-    top: 100, // could be negative value
-    left: 0, 
-    behavior: 'smooth' 
-  });
-
-
 document.addEventListener("DOMContentLoaded", function() {
-    // Get all nav links
-    var links = document.querySelectorAll('.experience-nav a');
-    
-    // Function to remove active class from all links
-    function removeActiveClass() {
-        links.forEach(function(link) {
-            link.classList.remove('active');
-        });
-    }
-    
-    // Get current hash from URL
-    var currentHash = window.location.hash;
-    
-    // Highlight the appropriate link
-    links.forEach(function(link) {
-        if (link.getAttribute('href') === currentHash) {
-            link.classList.add('active');
+
+    window.scrollTo(0, 0);
+
+    const sections = [
+        {
+            menuId: 'menu',
+            activeClass: 'curr_active',
+            contentClass: 'resume-card'
+        },
+        {
+            menuId: 'proj_menu',
+            activeClass: 'proj_curr_active',
+            contentClass: 'project-card'
         }
-    });
-    
-    // Optionally, you can add an event listener for hash change
-    window.addEventListener('hashchange', function() {
-        removeActiveClass();
-        
-        // Get updated hash
-        var updatedHash = window.location.hash;
-        
-        links.forEach(function(link) {
-            if (link.getAttribute('href') === updatedHash) {
-                link.classList.add('active');
-            }
-        });
-    });
-});
+    ];
 
+    sections.forEach(section => {
+        const menu = document.getElementById(section.menuId);
+        const links = menu.querySelectorAll('a');
+        const contentBlocks = document.querySelectorAll(`.${section.contentClass}`);
 
-document.addEventListener("DOMContentLoaded", function() {
-    var links = document.querySelectorAll('.experience-nav a');
-    var contentBlocks = document.querySelectorAll('.resume-card');
-    
-    function removeActiveClass() {
-        links.forEach(function(link) {
-            link.classList.remove('active');
-        });
-        contentBlocks.forEach(function(block) {
-            block.style.display = 'none';
-        });
-    }
-
-    links.forEach(function(link) {
-        link.addEventListener('click', function(event) {
-            event.preventDefault(); // Prevent default anchor behavior
-            
-            var targetId = link.getAttribute('id') + '-content'; // Get target content ID
-            var targetContent = document.getElementById(targetId);
-            
-            removeActiveClass();
-            
-            link.classList.add('active'); // Highlight the clicked link
-            targetContent.style.display = 'block'; // Show the corresponding content
-        });
-    });
-});
-
-
-const myMenu = document.getElementById('menu');
-
-myMenu.onclick = e => {
-  if (e.target.tagName.toLowerCase() !== 'a') return; // only process <a> clicks
-  e.preventDefault(); // prevent the default action (navigating to the anchor)
-  
-  let LI = e.target.parentElement;
-
-  if (!LI.classList.contains('curr_active')) {
-    myMenu.querySelector('li.curr_active').classList.remove('curr_active');
-  }
-  LI.classList.add('curr_active');
-};
-
-
-//project nav section
-
-
-document.addEventListener("DOMContentLoaded", function() {
-    var links = document.querySelectorAll('.project-nav a');
-    var contentBlocks = document.querySelectorAll('.project-card');
-    
-    function removeActiveClass() {
-        links.forEach(function(link) {
-            link.classList.remove('active');
-        });
-        contentBlocks.forEach(function(block) {
-            block.style.display = 'none';
-        });
-    }
-
-    links.forEach(function(link) {
-        link.addEventListener('click', function(event) {
-            event.preventDefault(); // Prevent default anchor behavior
-            
-            var targetId = link.getAttribute('id') + '-content'; // Get target content ID
-            var targetContent = document.getElementById(targetId);
-            
-            removeActiveClass();
-            
-            link.classList.add('active'); // Highlight the clicked link
-            targetContent.style.display = 'block'; // Show the corresponding content
-        });
-    });
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-    // Get all nav links
-    var links = document.querySelectorAll('.project-nav a');
-    
-    // Function to remove active class from all links
-    function removeActiveClass() {
-        links.forEach(function(link) {
-            link.classList.remove('active');
-        });
-    }
-    
-    // Get current hash from URL
-    var currentHash = window.location.hash;
-    
-    // Highlight the appropriate link
-    links.forEach(function(link) {
-        if (link.getAttribute('href') === currentHash) {
-            link.classList.add('active');
+        function removeActiveClass() {
+            links.forEach(link => {
+                link.parentElement.classList.remove(section.activeClass);
+            });
+            contentBlocks.forEach(block => {
+                block.style.display = 'none';
+            });
         }
-    });
-    
-    // Optionally, you can add an event listener for hash change
-    window.addEventListener('hashchange', function() {
-        removeActiveClass();
-        
-        // Get updated hash
-        var updatedHash = window.location.hash;
-        
-        links.forEach(function(link) {
-            if (link.getAttribute('href') === updatedHash) {
-                link.classList.add('active');
-            }
+
+        function setActiveLink(hash) {
+            links.forEach(link => {
+                if (link.getAttribute('href') === hash) {
+                    link.parentElement.classList.add(section.activeClass);
+                    document.querySelector(hash).style.display = 'block';
+                }
+            });
+        }
+
+        links.forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                const targetId = link.getAttribute('href');
+                removeActiveClass();
+                setActiveLink(targetId);
+            });
         });
+
+        window.addEventListener('hashchange', function() {
+            const hash = window.location.hash;
+            removeActiveClass();
+            setActiveLink(hash);
+        });
+
+        // Initial check to set active link based on the current URL hash
+        setActiveLink(window.location.hash);
     });
 });
 
-const myMenuproj = document.getElementById('proj_menu');
 
-myMenuproj.onclick = e => {
-  if (e.target.tagName.toLowerCase() !== 'a') return; // only process <a> clicks
-  e.preventDefault(); // prevent the default action (navigating to the anchor)
-  
-  let LI = e.target.parentElement;
+var i = 0;
+var txt = "Hey! I'm David.";
+var speed = 90;
 
-  if (!LI.classList.contains('proj_curr_active')) {
-    myMenuproj.querySelector('li.proj_curr_active').classList.remove('proj_curr_active');
+function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("page-title").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
   }
-  LI.classList.add('proj_curr_active');
-};
-
-window.onload = function() {
-    var defaultSection = document.getElementById("main_page");
-    defaultSection.scrollIntoView({ behavior: 'smooth' });
-};
+}
