@@ -51,7 +51,6 @@ body {
 }
 
 .nav-item {
-    background-color: transparent;
     font-size: 20px;
 }
 
@@ -99,13 +98,13 @@ body {
 }
 
 .navbar {
-    background-color: transparent;
     position: fixed;
     top: 0;
     height: 65px;
     width: 100%;
-    z-index: 1000; 
+    z-index: 10000; 
 }
+
 
 .container {
     /* fix this positioning shouldn't force position*/
@@ -377,7 +376,40 @@ ul#proj_menu li a {
     text-decoration: none; /* Ensure no underline on hover */
 }
 
+.about_me_title {
+    position: relative;
+    top: -250px;
+    left: 100px;
+}
 
+.about-me-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    max-width: 1000px; /* Adjust as needed */
+    margin: 20px auto; /* Center the section and provide some space */
+    padding: 20px; /* Add some padding around the section */
+  }
+  
+  .about-me-content {
+    flex: 1;
+    margin-right: 20px; /* Add margin to the right of the text */
+  }
+  
+  .about-me-text {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  .about-me-image {
+    max-width: 100%; /* Ensure the image doesn't exceed container width */
+    width: 200px; /* Adjust as needed */
+    height: auto;
+  }
+  
+  
+  
+  
 
 
 

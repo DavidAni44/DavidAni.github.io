@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-
 <head>
     <title>David</title>
     <!-- Required meta tags -->
@@ -8,60 +7,94 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-
-
+    <script src="script.js"></script>
 </head>
 
-<body onload="typeWriter(); window.scrollTo(0, 0);">
+<body onload="typeWriter();">
     <div id="main_page">
         <div class="section">
-            <nav class="navbar navbar-expand-sm navbar-light">
+            <!-- Top Navbar -->
+            <nav class="navbar navbar-expand-sm navbar-light fixed-top">
                 <a href="#">
                     <img id="main-logo" src="img/logo.png">
                 </a>
                 <div class="collapse navbar-collapse" id="collapsibleNavId">
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                         <li class="nav-item">
+                            <a class="nav-link" href="#main_page" style="color: #9EC8B9; font-size: 18px;">HOME</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about_me" style="color: #9EC8B9; font-size: 18px;">ABOUT ME</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="#two" style="color: #9EC8B9; font-size: 18px;">EXPERIENCE</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#three" style="color: #9EC8B9; font-size: 18px;">PROJECTS</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" style="color: #9EC8B9; font-size: 18px;">CONTACT ME</a>
-                        </li>
                     </ul>
-
-                    <button class="contact-me"><a href="mailto:davidarisani@gmail.com">Say Hi!</a></button>
                 </div>
             </nav>
-            <div class="container">
+            <div class="container" style="padding-top: 75px;">
                 <h1 class="page-title" id="page-title"></h1>
                 <p class="homepage-quote">I like to build stuff...sometimes</p>
-                <img id="main-body-logo" src="img/David_logo.png" alt="David Logo">
+                <button class="contact-me"><a href="mailto:davidarisani@gmail.com">Say Hi!</a></button>
             </div>
 
             <div class="scroll-arrow">
                 <svg width="30px" height="20px">
-                    <path stroke="#ffffff" fill="none" stroke-width="'2px"
-                        d="M2.000,5.000 L15.000,18.000 L28.000,5.000">
-                    </path>
+                    <path stroke="#ffffff" fill="none" stroke-width="'2px" d="M2.000,5.000 L15.000,18.000 L28.000,5.000"></path>
                 </svg>
             </div>
         </div>
     </div>
 
+    <div id="about_me">
+        <div class="section">
+            <h1 class="about_me_title">/ About Me</h1>
+            <div class="about-me-container">
+                <div class="about-me-content">
+                    <p class="about-me-text">
+                        I am currently an IT Operations Engineer on a placement scheme at <a href="https://www.mercedes-amg-hpp.com/#">Mercedes AMG HPP</a> working predominantly within the business systems unit. <br><br>
+                        I am also still undertaking my undergraduate BSc in Computer Science at <a href="https://www.shu.ac.uk">Sheffield Hallam University</a>, where I will be in my final year following the completion of my placement year. <br><br>
+            
+                        Here are some technologies I have been working with:
+                    </p>
+            
+                    <ul class="stack-list">
+                        <li>Python</li>
+                        <li>Java</li>
+                        <li>PHP</li>
+                        <li>JavaScript</li>
+                        <li>Git</li>
+                        <li>SQL</li>
+                    </ul>
+
+                    <p class="about-me-text">
+                        Outside of working I am passionate about American Football, Basketball and Football, I also enjoy watching anime and anything Marvel or DC
+                    </p>
+                </div>
+                <img src="img/profile.jpeg" class="about-me-image">
+            </div>
+
+
+            <div class="scroll-arrow">
+                <svg width="30px" height="20px">
+                    <path stroke="#ffffff" fill="none" stroke-width="'2px" d="M2.000,5.000 L15.000,18.000 L28.000,5.000"></path>
+                </svg>
+            </div>
+        </div>
+    </div>
 
     <div id="two">
         <div class="section">
+            <!-- Experience Navbar -->
             <div class="nav-container">
                 <nav class="experience-nav">
                     <ul id="menu">
-                        <li class="curr_active"><a id="mercedes" href="#mercedes-content" style="color: #9EC8B9;">Mercedes AMG High Performance
-                                Powertrains</a></li>
+                        <li class="curr_active"><a id="mercedes" href="#mercedes-content" style="color: #9EC8B9;">Mercedes AMG High Performance Powertrains</a></li>
                         <li><a id="lowell" href="#lowell-content" style="color: #9EC8B9;">Lowell</a></li>
                         <li><a id="google" href="#google-content" style="color: #9EC8B9;">Google</a></li>
                     </ul>
@@ -71,46 +104,32 @@
                 <h2 class="resume-title"><b>IT Operations Engineer</b></h2>
                 <h6 class="resume-date"><b>28/05/23 - Present</b></h6>
                 <p class="resume-desc">
-                    · Managed all Python scripts within the operations team, overseeing their development, maintenance, and
-                    deployment to improve company processes.<br><br>
-                    · Spearheaded the implementation of DevOps pipelines to automate the deployment of scripts to servers,
-                    ensuring seamless execution and continuous improvement of operational workflows.<br><br>
-                    · Collaborated closely with cross-functional teams to gather requirements, design solutions, and
-                    optimize scripts for efficiency and reliability.
+                    · Managed all Python scripts within the operations team, overseeing their development, maintenance, and deployment to improve company processes.<br><br>
+                    · Spearheaded the implementation of DevOps pipelines to automate the deployment of scripts to servers, ensuring seamless execution and continuous improvement of operational workflows.<br><br>
+                    · Collaborated closely with cross-functional teams to gather requirements, design solutions, and optimize scripts for efficiency and reliability.
                 </p>
             </div>
             <div id="lowell-content" class="resume-card" style="display: none;">
                 <h2 class="resume-title"><b>Technical Business Analyst</b></h2>
                 <h6 class="resume-date"><b>05/06/2023 – 18/08/2023</b></h6>
                 <p class="resume-desc">
-                    · Orchestrated Agile sprint ceremonies, fostering collaborative teamwork and optimizing project
-                    efficiency.<br><br>
-                    · Engaged in pair programming to resolve intricate bug tickets, enhancing problem-solving skills and
-                    promoting knowledge exchange.<br><br>
-                    · Explored diverse IT sectors including Development, Testing, Architecture, and RPA, contributing
-                    significantly to projects and gaining holistic insights into technological integration and operational
-                    dynamics.
+                    · Orchestrated Agile sprint ceremonies, fostering collaborative teamwork and optimizing project efficiency.<br><br>
+                    · Engaged in pair programming to resolve intricate bug tickets, enhancing problem-solving skills and promoting knowledge exchange.<br><br>
+                    · Explored diverse IT sectors including Development, Testing, Architecture, and RPA, contributing significantly to projects and gaining holistic insights into technological integration and operational dynamics.
                 </p>
             </div>
             <div id="google-content" class="resume-card" style="display: none;">
                 <h2 class="resume-title"><b>Hackathon Attendee</b></h2>
                 <h6 class="resume-date"><b>06/10/23 - 09/10/23</b></h6>
                 <p class="resume-desc">
-                    · Distinguished participant at the Google BGN Hackathon, contributing to the development of BuddyUp, an
-                    innovative application for university students, using Flask and SQLAlchemy for scalable backend
-                    infrastructure, and JavaScript with Material-UI for a dynamic frontend.<br><br>
-                    · Integrated Google NLP API to analyze sentiment and entities in student profiles for interest-based
-                    matching, and Skiddle API for real-time event information, enhancing user engagement through advanced
-                    natural language processing and comprehensive event integration.<br><br>
-                    · Led development efforts, ensuring seamless integration of APIs and prioritizing UX aesthetics and
-                    functionality.
+                    · Distinguished participant at the Google BGN Hackathon, contributing to the development of BuddyUp, an innovative application for university students, using Flask and SQLAlchemy for scalable backend infrastructure, and JavaScript with Material-UI for a dynamic frontend.<br><br>
+                    · Integrated Google NLP API to analyze sentiment and entities in student profiles for interest-based matching, and Skiddle API for real-time event information, enhancing user engagement through advanced natural language processing and comprehensive event integration.<br><br>
+                    · Led development efforts, ensuring seamless integration of APIs and prioritizing UX aesthetics and functionality.
                 </p>
             </div>
             <div class="scroll-arrow">
                 <svg width="30px" height="20px">
-                    <path stroke="#ffffff" fill="none" stroke-width="'2px"
-                        d="M2.000,5.000 L15.000,18.000 L28.000,5.000">
-                    </path>
+                    <path stroke="#ffffff" fill="none" stroke-width="'2px" d="M2.000,5.000 L15.000,18.000 L28.000,5.000"></path>
                 </svg>
             </div>
         </div>
@@ -118,11 +137,11 @@
 
     <div id="three">
         <div class="section">
+            <!-- Project Navbar -->
             <div class="nav-container">
                 <nav class="project-nav">
                     <ul id="proj_menu">
-                        <li class="proj_curr_active"><a id="spotify" href="#spotify-content" style="color: #9EC8B9;">Spotify Monthly Wrapped</a>
-                        </li>
+                        <li class="proj_curr_active"><a id="spotify" href="#spotify-content" style="color: #9EC8B9;">Spotify Monthly Wrapped</a></li>
                         <li><a id="actemium" href="#actemium-content" style="color: #9EC8B9;">Actemium Engineer Appraisal System</a></li>
                     </ul>
                 </nav>
@@ -131,43 +150,29 @@
                 <h2 class="resume-title"><b>Flask, Spotify API, HTML, CSS</b></h2>
                 <h6 class="resume-date"><b><a href="https://github.com/Adam-Infnty/Wrapped_Weekly">See Project</a></b></h6>
                 <p class="resume-desc">
-                    · Leveraged my love of music and technology to create a monthly breakdown of a user's most listened to
-                    artists and tracks with 30 snippets of the top tracks.<br><br>
-                    · Utilized the Spotify API to extract JSON data which can be used to display varied information in
-                    regard to Artists, Tracks, Users, and Playlists.<br><br>
-                    · Used Flask to create a backend server which can be used to display the information and HTML, CSS, and
-                    JavaScript to create a clean and aesthetically pleasing User interface.
+                    · Leveraged my love of music and technology to create a monthly breakdown of a user's most listened to artists and tracks with 30 snippets of the top tracks.<br><br>
+                    · Utilized the Spotify API to extract JSON data which can be used to display varied information in regard to Artists, Tracks, Users, and Playlists.<br><br>
+                    · Used Flask to create a backend server which can be used to display the information and HTML, CSS, and JavaScript to create a clean and aesthetically pleasing User interface.
                 </p>
             </div>
             <div id="actemium-content" class="project-card" style="display: none;">
                 <h2 class="resume-title"><b>HTML, CSS, JavaScript, MongoDB, next.js</b></h2>
                 <h6 class="resume-date"><b>Project is owned by company</b></h6>
                 <p class="resume-desc">
-                    · Engineered an advanced interactive appraisal platform for VINCI Energies (Actemium), transitioning
-                    from paper-based processes to an online system.<br><br>
+                    · Engineered an advanced interactive appraisal platform for VINCI Energies (Actemium), transitioning from paper-based processes to an online system.<br><br>
                     · Utilized MongoDB for robust storage and seamless retrieval of appraisal data.<br><br>
-                    · Employed the Model-View-Controller (MVC) architectural pattern for optimal maintainability and
-                    scalability.<br><br>
-                    · Implemented dynamic bar charts and tabular representations using JavaScript for intuitive data
-                    visualization.<br><br>
+                    · Employed the Model-View-Controller (MVC) architectural pattern for optimal maintainability and scalability.<br><br>
+                    · Implemented dynamic bar charts and tabular representations using JavaScript for intuitive data visualization.<br><br>
                     · Enhanced efficiency and resource utilization through digital transformation.
                 </p>
             </div>
         </div>
     </div>
-
 </body>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="script.js"></script>
-
 </html>

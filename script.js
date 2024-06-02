@@ -6,12 +6,14 @@ document.addEventListener("DOMContentLoaded", function() {
         {
             menuId: 'menu',
             activeClass: 'curr_active',
-            contentClass: 'resume-card'
+            contentClass: 'resume-card',
+            sectionId: 'two'
         },
         {
             menuId: 'proj_menu',
             activeClass: 'proj_curr_active',
-            contentClass: 'project-card'
+            contentClass: 'project-card',
+            sectionId: 'three'
         }
     ];
 
@@ -33,7 +35,10 @@ document.addEventListener("DOMContentLoaded", function() {
             links.forEach(link => {
                 if (link.getAttribute('href') === hash) {
                     link.parentElement.classList.add(section.activeClass);
-                    document.querySelector(hash).style.display = 'block';
+                    const targetElement = document.querySelector(hash);
+                    if (targetElement) {
+                        targetElement.style.display = 'block';
+                    }
                 }
             });
         }
@@ -44,20 +49,46 @@ document.addEventListener("DOMContentLoaded", function() {
                 const targetId = link.getAttribute('href');
                 removeActiveClass();
                 setActiveLink(targetId);
+                window.location.hash = targetId;
             });
         });
 
         window.addEventListener('hashchange', function() {
             const hash = window.location.hash;
-            removeActiveClass();
-            setActiveLink(hash);
+            const isInSection = hash && document.querySelector(hash) && document.querySelector(hash).classList.contains(section.contentClass);
+            if (isInSection) {
+                removeActiveClass();
+                setActiveLink(hash);
+            }
         });
 
         // Initial check to set active link based on the current URL hash
-        setActiveLink(window.location.hash);
+        const initialHash = window.location.hash;
+        const isInSection = initialHash && document.querySelector(initialHash) && document.querySelector(initialHash).classList.contains(section.contentClass);
+        if (isInSection) {
+            setActiveLink(initialHash);
+        }
     });
-});
 
+    // Handle top-level navbar links for smooth scrolling to sections
+    const topNavbarLinks = document.querySelectorAll('.navbar .nav-link');
+    topNavbarLinks.forEach(link => {
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            const targetId = link.getAttribute('href');
+            document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
+            window.location.hash = targetId;
+        });
+    });
+
+    // Initial check to scroll to the section based on the current URL hash
+    if (window.location.hash) {
+        const section = document.querySelector(window.location.hash);
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+});
 
 var i = 0;
 var txt = "Hey! I'm David.";
