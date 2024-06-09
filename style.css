@@ -3,19 +3,69 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #092635;
+    color: #9EC8B9;
+    overflow-x: hidden; /* Ensure no horizontal overflow */
+}
+
+/* Card styling to ensure text stays within bounds */
+.project-card, .resume-card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 850px;
+    color: #9EC8B9;
+    backdrop-filter: blur(8px);
+    margin: 20px auto;
+    padding: 20px; /* Add padding to ensure text does not touch edges */
+    overflow: hidden; /* Ensure text does not overflow the card */
+    box-sizing: border-box; /* Ensure padding is included in the width and height */
+    word-wrap: break-word; /* Break long words */
+}
+
+.project-card:hover, .resume-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.resume-title {
+    margin: 30px 0;
+}
+
+.resume-date, .resume-desc {
+    padding: 10px 0;
+}
+
+.resume-desc {
+    padding: 20px 0;
 }
 
 /* Responsive design */
 @media (max-width: 1200px) {
     .resume-card, .project-card {
-        height: auto;
         width: 90%;
+    }
+
+    .resume-title, .resume-date, .resume-desc {
+        padding: 10px;
+    }
+
+    .about-me-content {
+        margin: 0 auto;
     }
 }
 
 @media (max-width: 768px) {
+    .navbar {
+        position: absolute;  /* Position the navbar at the top of the page */
+        top: 0;
+        height: 65px;
+        width: 100%;
+        z-index: 10000;
+        background-color: #092635;
+    }
+
     .project-nav ul {
         flex-direction: column;
+        align-items: center;
     }
 
     .project-nav a {
@@ -24,11 +74,25 @@ body {
     }
 
     .resume-card, .project-card {
+        padding: 15px;
+    }
+
+    .about-me-content {
+        margin-top: 20px;
+    }
+
+    .about-me-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-me-image {
         width: 100%;
+        max-width: 300px;
+        margin-bottom: 20px;
     }
 
     .resume-title, .resume-date, .resume-desc {
-        margin-left: 15px;
         padding: 10px;
     }
 }
@@ -36,10 +100,43 @@ body {
 @media (max-width: 480px) {
     .project-card, .resume-card {
         padding: 10px;
+        word-wrap: break-word; /* Break long words on small screens */
     }
 
     .page-title {
-        font-size: 48px;
+        font-size: 36px;
+        border-right: 0.15em solid #9EC8B9; /* Typewriter cursor */
+        animation: caret 0.75s steps(1) infinite; /* Blinking cursor effect */
+    }
+
+    .about_me_title {
+        font-size: 24px;
+        left: 10px;
+        top: -100px;
+    }
+
+    .about-me-content {
+        margin-top: 10px;
+    }
+
+    .about-me-text {
+        font-size: 14px;
+    }
+
+    .contact-me {
+        font-size: 12px;
+        padding: 12px 18px;
+    }
+}
+
+/* Enable snap scroll for larger screens */
+@media (min-width: 780px) {
+    html {
+        scroll-snap-type: y mandatory;
+    }
+
+    .section {
+        scroll-snap-align: start;
     }
 }
 
@@ -58,43 +155,32 @@ body {
     font-size: 18px;
 }
 
-
 * {
-    background-color: #092635;
-    color: #9EC8B9;
     font-family: 'Now-Regular';
     scroll-behavior: smooth;
+    box-sizing: border-box; /* Ensures padding and border are included in element's total width and height */
 }
 
 html {
     scroll-behavior: smooth;
-    scroll-snap-type: y mandatory;
-}
-
-html:focus-within {
-    scroll-behavior: smooth !important;
 }
 
 body {
     overflow-y: scroll;
-    overflow-x: hidden;
-    
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 .section {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100dvh;
-    scroll-snap-align: start;
-    scroll-snap-stop: normal;
+    min-height: 100vh;
     width: 100%;
-    position: relative; /* Relative positioning for internal absolute elements */
+    position: relative;
 }
 
 .nav-link a {
     color: #9EC8B9;
-    scroll-behavior: smooth;
 }
 
 .navbar {
@@ -102,18 +188,17 @@ body {
     top: 0;
     height: 65px;
     width: 100%;
-    z-index: 10000; 
+    z-index: 10000;
+    background-color: #092635; /* Ensure the navbar is visible on scroll */
 }
 
-
 .container {
-    /* fix this positioning shouldn't force position*/
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center; 
-    width: 100dvh;
+    text-align: center;
+    width: 100%;
 }
 
 #main-body-logo {
@@ -126,23 +211,27 @@ body {
 
 .container p:nth-child(2) {
     animation: fadeIn .3s ease-in-out forwards;
-    animation-delay: 1s;  
+    animation-delay: 1s;
 }
 
 .container img:nth-child(3) {
     animation: fadeIn .3s ease-in-out forwards;
-    animation-delay: 1.5s; 
+    animation-delay: 1.5s;
 }
 
 a {
     color: #9EC8B9;
-    scroll-behavior: smooth;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #1A3F52;
+    text-decoration: underline;
 }
 
 li {
     color: #9EC8B9;
 }
-
 
 .scroll-arrow {
     position: absolute;
@@ -150,10 +239,12 @@ li {
     left: 50%;
     transform: translateX(-50%);
     animation: fadeBounce 3s infinite;
-  }
+}
 
 .page-title {
     font-size: 96px;
+    border-right: 0.10em solid #9EC8B9; /* Typewriter cursor */
+    animation: caret 0.75s steps(1) infinite; /* Blinking cursor effect */
 }
 
 #main-body-logo {
@@ -163,63 +254,62 @@ li {
 
 #two {
     width: 100%;
-    height: 100vh; /* Example height */
-    position: relative; /* Relative positioning for internal absolute elements */
+    min-height: 100vh;
+    position: relative;
 }
 
 /* Container for the navigation */
 .nav-container {
-    background-color: #333; /* Dark background color */
-    overflow: hidden; /* Clear floats */
-    width: 100%; /* Full width */
-    position: absolute; /* Absolute positioning within the section */
-    top: 100px; /* Position it at the very top of the section */
-    z-index: 1000; /* Ensures the navbar is above other content */
+    background-color: #092635;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    top: 0;
+    z-index: 1000;
 }
 
 /* Navigation styling */
-.experience-nav {
-    display: flex; /* Use flexbox for alignment */
-    justify-content: center; /* Center the navigation items */
+.experience-nav, .project-nav {
+    display: flex;
+    justify-content: center;
 }
 
-/* Unordered list styling */
-.experience-nav ul {
-    list-style-type: none; /* Remove default bullet points */
-    margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
-    display: flex; /* Use flexbox for alignment */
+.experience-nav ul, .project-nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
 }
 
-/* List item styling */
-.experience-nav li {
-    margin: 0 15px; /* Space between items */
+.experience-nav li, .project-nav li {
+    margin: 0 15px;
 }
 
-
-.experience-nav a {
-    display: block; /* Make the entire area clickable */
-    color: white; /* Text color */
-    text-align: center; /* Center text */
-    padding: 14px 20px; /* Padding for clickable area */
-    text-decoration: none; /* Remove underline */
-    font-size: 16px; /* Font size */
+.experience-nav a, .project-nav a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    font-size: 16px;
 }
 
 .active {
     display: block;
 }
 
-ul#menu {
+ul#menu, ul#proj_menu {
     list-style: none;
 }
-ul#menu li {
+
+ul#menu li, ul#proj_menu li {
     display: inline-block;
     padding: .3em .5em;
-    position:relative;
+    position: relative;
     overflow: hidden;
 }
-ul#menu li::before {
+
+ul#menu li::before, ul#proj_menu li::before {
     position: absolute;
     display: block;
     content: '';
@@ -230,110 +320,9 @@ ul#menu li::before {
     transition: 0.4s;
     background-color: #1A3F52;
 }
-ul#menu li.curr_active::before,
-ul#menu li:hover::before {
-    left:0%;
-}
-ul#menu li a {
-    text-decoration: none;
-}
 
-
-ul#proj_menu {
-    list-style: none;
-}
-ul#proj_menu li {
-    display: inline-block;
-    padding: .3em .5em;
-    position:relative;
-    overflow: hidden;
-}
-ul#proj_menu li::before {
-    position: absolute;
-    display: block;
-    content: '';
-    bottom: 0;
-    left: -100%;
-    width: 100%;
-    height: 5px;
-    transition: 0.4s;
-    background-color: #1A3F52;
-}
-ul#proj_menu li.proj_curr_active::before,
-ul#proj_menu li:hover::before {
-    left:0%;
-}
-ul#proj_menu li a {
-    text-decoration: none;
-}
-.resume-card {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    height: 550px;
-    width: 850px;
-    color: #333;
-    backdrop-filter: blur(8px);
-}
-  
-.resume-card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
-
-/* Navigation styling */
-.project-nav {
-    display: flex; /* Use flexbox for alignment */
-    justify-content: center; /* Center the navigation items */
-}
-
-/* Unordered list styling */
-.project-nav  ul {
-    list-style-type: none; /* Remove default bullet points */
-    margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
-    display: flex; /* Use flexbox for alignment */
-}
-
-/* List item styling */
-.project-nav li {
-    margin: 0 15px; /* Space between items */
-}
-
-
-.project-nav a {
-    display: block; /* Make the entire area clickable */
-    color: white; /* Text color */
-    text-align: center; /* Center text */
-    padding: 14px 20px; /* Padding for clickable area */
-    text-decoration: none; /* Remove underline */
-    font-size: 16px; /* Font size */
-}
-
-
-.project-card {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    height: 550px;
-    width: 850px;
-    color: #333;
-    backdrop-filter: blur(8px);
-}
-  
-.project-card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
-
-.resume-title {
-    position: relative;
-    margin-left: 30px;
-    margin-top: 30px;
-}
-
-.resume-date {
-    margin-left: 30px;
-}
-
-.resume-desc {
-    position: relative;
-    top: 80px;
-    padding: 20px;
+ul#menu li.curr_active::before, ul#menu li:hover::before, ul#proj_menu li.proj_curr_active::before, ul#proj_menu li:hover::before {
+    left: 0%;
 }
 
 .contact-me {
@@ -351,7 +340,6 @@ ul#proj_menu li a {
     border: 2px solid #1A3F52;
     border-radius: 40px;
     padding: 16px 24px 16px 28px;
-    transform: translate(0px, 0px) rotate(0deg);
     transition: 0.2s;
     text-decoration: none;
 }
@@ -359,64 +347,224 @@ ul#proj_menu li a {
 .contact-me:hover {
     color: #092635;
     background-color: #9EC8B9;
-    text-decoration: none;
 }
 
 .contact-me:active {
     box-shadow: none;
 }
 
-.contact-me a {
-    color: inherit; /* Ensure the link color inherits from the parent */
-    text-decoration: none; /* Remove underline from the link */
+.contact-me-link {
+    color: inherit;
 }
 
-.contact-me a:hover {
-    color: inherit; /* Maintain inherited color on hover */
-    text-decoration: none; /* Ensure no underline on hover */
-}
-
+/* About Me Title Styling */
 .about_me_title {
-    position: relative;
-    top: -250px;
-    left: 100px;
+    background-color: #092635; /* Matches the background color */
+    padding: 10px 15px; /* Adds some padding for better readability */
+    font-size: 64px; /* Sets the font size */
+    box-sizing: border-box; /* Includes padding in the width calculation */
+    display: inline-block; /* Supports typewriter effect */
+    white-space: nowrap; /* Prevents text from wrapping */
+    overflow: hidden; /* Hides overflowing content */
+    color: #9EC8B9; /* Sets text color */
+}
+
+@keyframes caret {
+    50% {
+      border-color: transparent;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        position: absolute;  /* Position the navbar at the top of the page */
+        top: 0;
+        height: 65px;
+        width: 100%;
+        z-index: 10000;
+        background-color: #092635;
+    }
+
+    .about_me_title {
+        font-size: 36px;
+        text-align: center;
+    }
+
+    body {
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+
+    .page-title {
+        font-size: 48px;
+    }
+
+    .about-me-content {
+        margin-top: 40px;
+    }
+
+    .scroll-arrow {
+        visibility: hidden;
+        display: none;
+    }
+
+    .section {
+        min-height: 100dvh;
+    }
+
+    html, body {
+        overflow-x:hidden;
+    }
+}
+
+@media (max-width: 480px) {
+    .section {
+        min-height: 100dvh;
+    }
 }
 
 .about-me-container {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    max-width: 1000px; /* Adjust as needed */
-    margin: 20px auto; /* Center the section and provide some space */
-    padding: 20px; /* Add some padding around the section */
-  }
-  
-  .about-me-content {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.about-me-content {
     flex: 1;
-    margin-right: 20px; /* Add margin to the right of the text */
-  }
-  
-  .about-me-text {
+    margin-right: 20px;
+}
+
+.about-me-text {
     font-size: 16px;
     line-height: 1.5;
-  }
-  
-  .about-me-image {
-    max-width: 100%; /* Ensure the image doesn't exceed container width */
-    width: 200px; /* Adjust as needed */
+}
+
+.about-me-image {
+    max-width: 100%;
+    width: 400px;
     height: auto;
-  }
-  
-  
-  
-  
+}
 
+.stack-list {
+    column-count: 3;
+    column-gap: 20px;
+}
 
+/* Responsive tables */
+.table-responsive {
+    width: 100%;
+    margin-bottom: 1.5rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    display: block;
+}
 
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #9EC8B9;
+}
+
+.table th,
+.table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+
+@media (max-width: 576px) {
+    .table-responsive .table th,
+    .table-responsive .table td {
+        white-space: nowrap;
+    }
+}
+
+/* Custom styles for the menu checkbox */
+.menu {
+    display: none;
+}
+
+.menu + label {
+    --s: 24px; /* control the size */
+    --c: #9EC8B9; /* the color */
+    display: inline-block;
+    width: var(--s);
+    height: var(--s);
+    position: absolute;
+    top: 12px; /* Adjust the positioning as needed */
+    right: 12px; /* Adjust the positioning as needed */
+    cursor: pointer;
+    z-index: 1001; /* Ensure it stays on top */
+}
+
+.menu + label::before,
+.menu + label::after,
+.menu + label span {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--c);
+    transition: all 0.3s ease-in-out;
+}
+
+.menu + label::before {
+    top: 0;
+}
+
+.menu + label::after {
+    bottom: 0;
+}
+
+.menu + label span {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.menu:checked + label::before {
+    transform: rotate(45deg);
+    top: 50%;
+}
+
+.menu:checked + label::after {
+    transform: rotate(-45deg);
+    top: 50%;
+}
+
+.menu:checked + label span {
+    background-color: transparent;
+}
+
+.navbar-toggler-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+@media (min-width: 992px) {
+    .navbar-toggler-wrapper {
+        display: none;
+    }
+}
+
+.navbar-toggler {
+    border: none;
+    background: none;
+    padding: 0;
+}
+
+.collapse.show {
+    display: flex !important;
+}
+
+/* Animations */
 @keyframes fadeIn {
     to {
         opacity: 1;
-      }
+    }
 }
 
 @font-face {
@@ -425,18 +573,13 @@ ul#proj_menu li a {
 }
 
 @keyframes fadeBounce {
-    0%,
-    20%,
-    50%,
-    80%,
-    100% {
-      opacity: 0;
-      transform: translateY(-20px);
+    0%, 20%, 50%, 80%, 100% {
+        opacity: 0;
+        transform: translateY(-20px);
     }
-  
+
     40% {
-      opacity: 1;
-      transform: translateY(0);
+        opacity: 1;
+        transform: translateY(0);
     }
-  
 }

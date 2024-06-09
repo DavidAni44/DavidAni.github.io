@@ -12,57 +12,59 @@
     <script src="script.js"></script>
 </head>
 
-<body onload="typeWriter();">
-    <div id="main_page">
-        <div class="section">
-            <!-- Top Navbar -->
-            <nav class="navbar navbar-expand-sm navbar-light fixed-top">
-                <a href="#">
-                    <img id="main-logo" src="img/logo.png">
-                </a>
-                <div class="collapse navbar-collapse" id="collapsibleNavId">
-                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#main_page" style="color: #9EC8B9; font-size: 18px;">HOME</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#about_me" style="color: #9EC8B9; font-size: 18px;">ABOUT ME</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#two" style="color: #9EC8B9; font-size: 18px;">EXPERIENCE</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#three" style="color: #9EC8B9; font-size: 18px;">PROJECTS</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-            <div class="container" style="padding-top: 75px;">
-                <h1 class="page-title" id="page-title"></h1>
-                <p class="homepage-quote">I like to build stuff...sometimes</p>
-                <button class="contact-me"><a href="mailto:davidarisani@gmail.com">Say Hi!</a></button>
+<body>
+    <div id="main_page" class="d-flex flex-column align-items-center justify-content-center vh-100">
+        <nav class="navbar navbar-expand-lg navbar-light w-100">
+            <a class="navbar-brand" href="#">
+                <img id="main-logo" src="img/logo.png" class="img-fluid">
+            </a>
+            <div class="navbar-toggler-wrapper ml-auto d-lg-none">
+                <input type="checkbox" role="button" aria-label="Display the menu" class="menu" id="menu-toggle">
+                <label for="menu-toggle">
+                    <span></span>
+                </label>
             </div>
-
-            <div class="scroll-arrow">
-                <svg width="30px" height="20px">
-                    <path stroke="#ffffff" fill="none" stroke-width="'2px" d="M2.000,5.000 L15.000,18.000 L28.000,5.000"></path>
-                </svg>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#main_page" style="color: #9EC8B9;">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about_me" style="color: #9EC8B9;">ABOUT ME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#two" style="color: #9EC8B9;">EXPERIENCE</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#three" style="color: #9EC8B9;">PROJECTS</a>
+                    </li>
+                </ul>
             </div>
+        </nav>
+        <div class="container text-center my-auto">
+            <h1 class="page-title" id="page-title"></h1>
+            <p class="homepage-quote">I like to build stuff...sometimes</p>
+            <a href="mailto:davidarisani@gmail.com" class="contact-me-link">
+                <button class="contact-me">Say Hi!</button>
+            </a>
+        </div>
+        <div class="scroll-arrow">
+            <svg width="30px" height="20px">
+                <path stroke="#ffffff" fill="none" stroke-width="2px" d="M2.000,5.000 L15.000,18.000 L28.000,5.000"></path>
+            </svg>
         </div>
     </div>
 
-    <div id="about_me">
-        <div class="section">
-            <h1 class="about_me_title">/ About Me</h1>
-            <div class="about-me-container">
-                <div class="about-me-content">
+    <div id="about_me" class="section py-5">
+        <div class="container">
+            <h1 class="about_me_title">/ About me</h1>
+            <div class="row about-me-container">
+                <div class="col-md-8 about-me-content">
                     <p class="about-me-text">
                         I am currently an IT Operations Engineer on a placement scheme at <a href="https://www.mercedes-amg-hpp.com/#">Mercedes AMG HPP</a> working predominantly within the business systems unit. <br><br>
                         I am also still undertaking my undergraduate BSc in Computer Science at <a href="https://www.shu.ac.uk">Sheffield Hallam University</a>, where I will be in my final year following the completion of my placement year. <br><br>
-            
                         Here are some technologies I have been working with:
                     </p>
-            
                     <ul class="stack-list">
                         <li>Python</li>
                         <li>Java</li>
@@ -70,30 +72,31 @@
                         <li>JavaScript</li>
                         <li>Git</li>
                         <li>SQL</li>
+                        <li>Azure DevOps</li>
+                        <li>HTML</li>
+                        <li>CSS</li>
                     </ul>
-
                     <p class="about-me-text">
                         Outside of working I am passionate about American Football, Basketball and Football, I also enjoy watching anime and anything Marvel or DC
                     </p>
                 </div>
-                <img src="img/profile.jpeg" class="about-me-image">
+                <div class="col-md-4 text-center">
+                    <img src="img/profile.jpeg" class="about-me-image img-fluid">
+                </div>
             </div>
-
-
             <div class="scroll-arrow">
                 <svg width="30px" height="20px">
-                    <path stroke="#ffffff" fill="none" stroke-width="'2px" d="M2.000,5.000 L15.000,18.000 L28.000,5.000"></path>
+                    <path stroke="#ffffff" fill="none" stroke-width="2px" d="M2.000,5.000 L15.000,18.000 L28.000,5.000"></path>
                 </svg>
             </div>
         </div>
     </div>
 
-    <div id="two">
-        <div class="section">
-            <!-- Experience Navbar -->
+    <div id="two" class="section py-5">
+        <div class="container">
             <div class="nav-container">
                 <nav class="experience-nav">
-                    <ul id="menu">
+                    <ul id="menu" class="d-flex flex-column flex-md-row">
                         <li class="curr_active"><a id="mercedes" href="#mercedes-content" style="color: #9EC8B9;">Mercedes AMG High Performance Powertrains</a></li>
                         <li><a id="lowell" href="#lowell-content" style="color: #9EC8B9;">Lowell</a></li>
                         <li><a id="google" href="#google-content" style="color: #9EC8B9;">Google</a></li>
@@ -129,18 +132,17 @@
             </div>
             <div class="scroll-arrow">
                 <svg width="30px" height="20px">
-                    <path stroke="#ffffff" fill="none" stroke-width="'2px" d="M2.000,5.000 L15.000,18.000 L28.000,5.000"></path>
+                    <path stroke="#ffffff" fill="none" stroke-width="2px" d="M2.000,5.000 L15.000,18.000 L28.000,5.000"></path>
                 </svg>
             </div>
         </div>
     </div>
 
-    <div id="three">
-        <div class="section">
-            <!-- Project Navbar -->
+    <div id="three" class="section py-5">
+        <div class="container">
             <div class="nav-container">
                 <nav class="project-nav">
-                    <ul id="proj_menu">
+                    <ul id="proj_menu" class="d-flex flex-column flex-md-row">
                         <li class="proj_curr_active"><a id="spotify" href="#spotify-content" style="color: #9EC8B9;">Spotify Monthly Wrapped</a></li>
                         <li><a id="actemium" href="#actemium-content" style="color: #9EC8B9;">Actemium Engineer Appraisal System</a></li>
                     </ul>

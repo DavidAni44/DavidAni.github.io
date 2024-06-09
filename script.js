@@ -90,14 +90,40 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-var i = 0;
-var txt = "Hey! I'm David.";
-var speed = 90;
 
-function typeWriter() {
-  if (i < txt.length) {
-    document.getElementById("page-title").innerHTML += txt.charAt(i);
-    i++;
-    setTimeout(typeWriter, speed);
-  }
+function typeWriter(elementId, text, speed) {
+    let i = 0;
+    function type() {
+      if (i < text.length) {
+        document.getElementById(elementId).innerHTML += text.charAt(i);
+        i++;
+        setTimeout(type, speed);
+      }
+    }
+    type();
 }
+
+function createObserver(targetId, callback) {
+    let target = document.getElementById(targetId);
+    let options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+    let observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          callback();
+          observer.unobserve(entry.target); // Stop observing after the effect starts
+        }
+      });
+    }, options);
+    observer.observe(target);
+}
+
+createObserver('main_page', () => typeWriter('page-title', "Hey! I'm David.", 100));
+
+
+document.getElementById('menu-toggle').addEventListener('change', function () {
+    document.getElementById('navbarNav').classList.toggle('show');
+});
