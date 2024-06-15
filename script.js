@@ -49,6 +49,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 const targetId = link.getAttribute('href');
                 removeActiveClass();
                 setActiveLink(targetId);
+                scrollToSection(targetId);
                 window.location.hash = targetId;
             });
         });
@@ -59,6 +60,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if (isInSection) {
                 removeActiveClass();
                 setActiveLink(hash);
+                scrollToSection(hash);
             }
         });
 
@@ -67,16 +69,30 @@ document.addEventListener("DOMContentLoaded", function() {
         const isInSection = initialHash && document.querySelector(initialHash) && document.querySelector(initialHash).classList.contains(section.contentClass);
         if (isInSection) {
             setActiveLink(initialHash);
+            scrollToSection(initialHash);
         }
     });
 
-    // Handle top-level navbar links for smooth scrolling to sections
+    function scrollToSection(targetId) {
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            const offset = -100; // Adjust this value to control the scroll position
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset + offset;
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth' // Change to 'smooth' if you want smooth scrolling
+            });
+        }
+    }
+
+    // Handle top-level navbar links without smooth scrolling
     const topNavbarLinks = document.querySelectorAll('.navbar .nav-link');
     topNavbarLinks.forEach(link => {
         link.addEventListener('click', function(event) {
             event.preventDefault();
             const targetId = link.getAttribute('href');
-            document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
+            scrollToSection(targetId);
             window.location.hash = targetId;
         });
     });
@@ -85,11 +101,10 @@ document.addEventListener("DOMContentLoaded", function() {
     if (window.location.hash) {
         const section = document.querySelector(window.location.hash);
         if (section) {
-            section.scrollIntoView({ behavior: 'smooth' });
+            scrollToSection(window.location.hash);
         }
     }
 });
-
 
 function typeWriter(elementId, text, speed) {
     let i = 0;
@@ -122,7 +137,6 @@ function createObserver(targetId, callback) {
 }
 
 createObserver('main_page', () => typeWriter('page-title', "Hey! I'm David.", 100));
-
 
 document.getElementById('menu-toggle').addEventListener('change', function () {
     document.getElementById('navbarNav').classList.toggle('show');
