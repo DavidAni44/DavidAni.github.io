@@ -10,6 +10,119 @@ html, body {
     color: #9EC8B9;
 }
 
+/* Navbar styling */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0; /* Align to the left */
+    width: 100%;
+    height: 65px;
+    background-color: #092635;
+    z-index: 9999; /* Very high z-index to ensure it stays on top */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.d-lg-none {
+    display: none;
+}
+
+.social-links {
+    margin-left: 10px; /* Adjust spacing as needed */
+}
+
+@media (max-width: 992px) {
+    .d-lg-none {
+        display: flex;
+    }
+}
+
+/* Social media links */
+.social-media-link img {
+    width: 24px;
+    height: 24px;
+}
+
+/* Menu icon styling for mobile */
+.menu {
+    display: none;
+}
+
+.menu-icon {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-icon span, .menu-icon::before, .menu-icon::after {
+    content: '';
+    height: 2px;
+    width: 24px;
+    background-color: #9EC8B9;
+    margin: 4px 0;
+    transition: all 0.3s ease;
+}
+
+.menu:checked + .menu-icon span {
+    background-color: transparent;
+}
+
+.menu:checked + .menu-icon::before {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu:checked + .menu-icon::after {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.menu:checked ~ .navbar-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    background-color: #092635;
+}
+
+.navbar-nav {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-item {
+    margin: 0 15px;
+}
+
+.nav-link {
+    color: #9EC8B9;
+    text-decoration: none;
+    padding: 14px 20px;
+}
+
+@media (max-width: 768px) {
+    .menu-icon {
+        display: flex;
+    }
+    .navbar-nav {
+        display: none;
+        flex-direction: column;
+    }
+}
+
 /* Card styling to ensure text stays within bounds */
 .project-card, .resume-card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -58,6 +171,7 @@ html, body {
 @media (max-width: 768px) {
     .navbar .navbar-collapse {
         display: none; /* Hide the navbar links on mobile devices */
+        background-color: #092635;
     }
 
     .navbar-brand {
@@ -148,9 +262,15 @@ html, body {
 
 /* Other existing styles */
 #main-logo {
-    height: 100px;
-    width: auto;
+    height: 130px; /* Default size for larger screens */
+    width: auto; /* Maintain aspect ratio */
     background-color: transparent;
+}
+
+@media (max-width: 768px) {
+    #main-logo {
+        height: 80px; /* Smaller size for mobile screens */
+    }
 }
 
 .nav-item {
@@ -178,12 +298,6 @@ html, body {
 
 .nav-link a {
     color: #9EC8B9;
-}
-
-.navbar {
-    height: 65px;
-    width: 100%;
-    background-color: #092635; /* Ensure the navbar is visible on scroll */
 }
 
 .container {
@@ -370,6 +484,14 @@ ul#menu li.curr_active::before, ul#menu li:hover::before, ul#proj_menu li.proj_c
 }
 
 @media (max-width: 768px) {
+    .navbar {
+        position: fixed; /* Ensure the navbar is fixed at the top */
+        top: 0;
+        left: 0; /* Align to the left */
+        width: 100%;
+        z-index: 9999; /* Very high z-index to ensure it stays on top */
+    }
+
     .navbar .navbar-collapse {
         display: none; /* Hide the navbar links on mobile devices */
     }
@@ -492,10 +614,10 @@ ul#menu li.curr_active::before, ul#menu li:hover::before, ul#proj_menu li.proj_c
     width: var(--s);
     height: var(--s);
     position: absolute;
-    top: 12px; /* Adjust the positioning as needed */
-    right: 12px; /* Adjust the positioning as needed */
+    top: 8px; /* Adjusted positioning */
+    right: 12px; /* Adjusted positioning */
     cursor: pointer;
-    z-index: 1001; /* Ensure it stays on top */
+    z-index: 2000; /* Higher z-index to ensure it stays on top */
 }
 
 .menu + label::before,
