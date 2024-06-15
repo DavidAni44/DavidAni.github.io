@@ -1,11 +1,13 @@
 /* Basic styling */
-body {
-    font-family: Arial, sans-serif;
+html, body {
     margin: 0;
     padding: 0;
+    width: 100%;
+    overflow-x: hidden; /* Ensure no horizontal overflow */
+    scroll-behavior: smooth;
+    font-family: Arial, sans-serif;
     background-color: #092635;
     color: #9EC8B9;
-    overflow-x: hidden; /* Ensure no horizontal overflow */
 }
 
 /* Card styling to ensure text stays within bounds */
@@ -54,13 +56,17 @@ body {
 }
 
 @media (max-width: 768px) {
-    .navbar {
-        position: absolute;  /* Position the navbar at the top of the page */
-        top: 0;
-        height: 65px;
-        width: 100%;
-        z-index: 10000;
-        background-color: #092635;
+    .navbar .navbar-collapse {
+        display: none; /* Hide the navbar links on mobile devices */
+    }
+
+    .navbar-brand {
+        margin-left: 0;
+    }
+
+    .social-media-link img {
+        width: 24px;
+        height: 24px;
     }
 
     .project-nav ul {
@@ -142,8 +148,8 @@ body {
 
 /* Other existing styles */
 #main-logo {
-    height: 150px;
-    width: 160px;
+    height: 100px;
+    width: auto;
     background-color: transparent;
 }
 
@@ -161,15 +167,6 @@ body {
     box-sizing: border-box; /* Ensures padding and border are included in element's total width and height */
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    overflow-y: scroll;
-    overflow-x: hidden; /* Prevent horizontal scroll */
-}
-
 .section {
     display: flex;
     justify-content: center;
@@ -184,11 +181,8 @@ body {
 }
 
 .navbar {
-    position: fixed;
-    top: 0;
     height: 65px;
     width: 100%;
-    z-index: 10000;
     background-color: #092635; /* Ensure the navbar is visible on scroll */
 }
 
@@ -376,13 +370,17 @@ ul#menu li.curr_active::before, ul#menu li:hover::before, ul#proj_menu li.proj_c
 }
 
 @media (max-width: 768px) {
-    .navbar {
-        position: absolute;  /* Position the navbar at the top of the page */
-        top: 0;
-        height: 65px;
-        width: 100%;
-        z-index: 10000;
-        background-color: #092635;
+    .navbar .navbar-collapse {
+        display: none; /* Hide the navbar links on mobile devices */
+    }
+
+    .navbar-brand {
+        margin-left: 0;
+    }
+
+    .social-media-link img {
+        width: 24px;
+        height: 24px;
     }
 
     .about_me_title {
