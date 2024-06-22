@@ -204,6 +204,7 @@ html, body {
     .about-me-container {
         flex-direction: column;
         align-items: center;
+        text-align: center; /* Center align text */
     }
 
     .about-me-image {
@@ -237,10 +238,12 @@ html, body {
 
     .about-me-content {
         margin-top: 10px;
+        text-align: center; /* Center align text */
     }
 
     .about-me-text {
         font-size: 14px;
+        text-align: center; /* Center align text */
     }
 
     .contact-me {
@@ -519,21 +522,31 @@ ul#menu li.curr_active::before, ul#menu li:hover::before, ul#proj_menu li.proj_c
         font-size: 48px;
     }
 
+    .about-me-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center; /* Center align text */
+    }
+
     .about-me-content {
-        margin-top: 40px;
+        margin-top: 20px;
+        text-align: center; /* Center align text */
     }
 
-    .scroll-arrow {
-        visibility: hidden;
-        display: none;
+    .about-me-image {
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 20px;
     }
 
-    .section {
-        min-height: 100dvh;
+    .about-me-text {
+        font-size: 14px;
+        text-align: center; /* Center align text */
     }
 
-    html, body {
-        overflow-x:hidden;
+    .contact-me {
+        font-size: 12px;
+        padding: 12px 18px;
     }
 }
 
@@ -541,33 +554,109 @@ ul#menu li.curr_active::before, ul#menu li:hover::before, ul#proj_menu li.proj_c
     .section {
         min-height: 100dvh;
     }
+
+    .about-me-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center; /* Center align text */
+    }
+
+    .about-me-content {
+        margin-top: 10px;
+        text-align: center; /* Center align text */
+    }
+
+    .about-me-text {
+        text-align: center; /* Center align text */
+    }
 }
 
+/* About Me Container */
 .about-me-container {
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     max-width: 1000px;
     margin: 20px auto;
     padding: 20px;
+    text-align: center; /* Center align text */
 }
 
+/* About Me Content */
 .about-me-content {
-    flex: 1;
-    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: center; /* Center align text */
 }
 
+/* About Me Text */
 .about-me-text {
     font-size: 16px;
     line-height: 1.5;
+    text-align: center; /* Center align text */
 }
 
+/* About Me Image */
 .about-me-image {
     max-width: 100%;
     width: 400px;
     height: auto;
+    margin-bottom: 20px;
 }
 
+/* Responsive design for About Me Section */
+@media (max-width: 1200px) {
+    .about-me-container {
+        width: 90%;
+    }
+
+    .about-me-text {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-me-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center; /* Center align text */
+    }
+
+    .about-me-content {
+        margin-top: 20px;
+        text-align: center; /* Center align text */
+    }
+
+    .about-me-image {
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-me-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center; /* Center align text */
+    }
+
+    .about-me-content {
+        margin-top: 10px;
+        text-align: center; /* Center align text */
+    }
+
+    .about-me-text {
+        font-size: 14px;
+        text-align: center; /* Center align text */
+    }
+}
+
+/* Stack List Styling */
 .stack-list {
     column-count: 3;
     column-gap: 20px;
