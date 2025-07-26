@@ -1,0 +1,32 @@
+name: Test Site
+
+on:
+  pull_request:
+    branches:
+    - main
+
+jobs: 
+  test:
+    runs-on: ubuntu-latest
+    container: 
+      image: node:20
+    steps: 
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+      
+      - name: Install dependencies
+        run: npm install
+
+      - name: Lint HTML
+        run: npm run lint:html
+
+      - name: Lint CSS
+        run: npm run lint:css
+
+      - name: Lint JS
+        run: npm run lint:js
