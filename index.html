@@ -1,193 +1,262 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <link rel="shortcut icon" type="x-icon" href="img/David_logo.png">
-    <title>David</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>David Ani — Platform Engineer</title>
+  <meta name="description" content="David Ani — Platform Engineer working across Kubernetes, AWS, Terraform and CI/CD automation.">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://david-ani.com">
+  <meta property="og:title" content="David Ani — Platform Engineer">
+  <meta property="og:description" content="I build and run the platforms other engineers ship on.">
+  <meta property="og:image" content="https://david-ani.com/assets/img/og-preview.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="David Ani — Platform Engineer">
+  <meta name="twitter:description" content="I build and run the platforms other engineers ship on.">
+  <meta name="twitter:image" content="https://david-ani.com/assets/img/og-preview.jpg">
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+  <link rel="icon" type="image/png" href="assets/img/David_logo.png">
+  <link rel="apple-touch-icon" href="assets/img/David_logo.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>
+    (function () {
+      var root = document.documentElement;
+      root.classList.add('js');
+      var stored = localStorage.getItem('theme');
+      var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      root.setAttribute('data-theme', theme);
+    })();
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "David Ani",
+    "url": "https://david-ani.com",
+    "image": "https://david-ani.com/assets/img/pro_pic.jpg",
+    "jobTitle": "Platform Engineer",
+    "email": "mailto:davidarisani@gmail.com",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Accenture"
+    },
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Sheffield Hallam University"
+    },
+    "knowsAbout": ["AWS", "Kubernetes", "Terraform", "Docker", "CI/CD", "GitHub Actions", "Python", "PowerShell", "Incident Management"],
+    "sameAs": [
+      "https://www.github.com/DavidAni44",
+      "https://www.linkedin.com/in/david-ani",
+      "https://x.com/davidani_"
+    ]
+  }
+  </script>
 </head>
-
 <body>
-    <div id="main_page" class="d-flex flex-column align-items-center justify-content-center vh-100">
-        <nav class="navbar navbar-expand-lg navbar-light w-100">
-            <div class="d-flex align-items-center">
-                <a class="navbar-brand" href="javascript:void(0);">
-                    <img id="main-logo" src="img/logo.png" class="img-fluid">
-                </a>
-                <div class="d-lg-none d-flex align-items-center">
-                    <a href="https://www.github.com/DavidAni44" class="social-media-link mx-2">
-                        <img src="img/Github1.png" class="img-fluid" alt="Github">
-                    </a>
-                    <a href="https://www.linkedin.com/in/david-ani" class="social-media-link mx-2">
-                        <img src="img/LinkedIn1.png" class="img-fluid" alt="LinkedIn">
-                    </a>
-                    <a href="https://x.com/davidani_" class="social-media-link mx-2">
-                        <img src="img/Twitter1.png" class="img-fluid" alt="Twitter">
-                    </a>
-                    <a href="docs/David%20Ani%20Resume.pdf" target="_blank" class="social-media-link mx-2">
-                        <img src="img/resumeIcon.png" class="img-fluid" alt="Resume">
-                    </a>
-                </div>
-            </div>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#main_page" style="color: #9EC8B9;">HOME</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about_me" style="color: #9EC8B9;">ABOUT ME</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#two" style="color: #9EC8B9;">EXPERIENCE</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#three" style="color: #9EC8B9;">PROJECTS</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-        <div class="resume-button-container">
-            <a href="docs/David%20Ani%20Resume.pdf" target="_blank" class="resume-link">
-                <button class="resume-button"><img src="img/resumeIcon.png" class="img-fluid" alt="Resume icon"></button>
-            </a>
-        </div>
-        <div class="container text-center my-auto">
-            <h1 class="page-title" id="page-title"></h1>
-            <p class="homepage-quote">I like to build stuff...sometimes</p>
-            <a href="mailto:davidarisani@gmail.com" class="contact-me-link">
-                <button class="contact-me">Say Hi!</button>
-            </a>
-        </div>
-        <div class="scroll-arrow">
-            <svg width="30px" height="20px">
-                <path stroke="#ffffff" fill="none" stroke-width="2px" d="M2.000,5.000 L15.000,18.000 L28.000,5.000"></path>
-            </svg>
-        </div>
+
+  <header class="site-nav" id="site-nav">
+    <div class="nav-inner">
+      <a class="brand" href="#hero">David<span class="brand-dot">.</span></a>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#hero" class="nav-link">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#projects" class="nav-link">Projects</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="icon-link" href="https://www.github.com/DavidAni44" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        </a>
+        <a class="icon-link" href="https://www.linkedin.com/in/david-ani" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a class="icon-link" href="https://x.com/davidani_" target="_blank" rel="noopener" aria-label="Twitter">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+        </a>
+        <a class="icon-link" href="assets/resume/David%20Ani%20Resume.pdf" target="_blank" rel="noopener" aria-label="Résumé">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </a>
+        <button class="icon-link theme-toggle" id="theme-toggle" aria-pressed="false" aria-label="Switch to dark mode">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
     </div>
 
-    <div id="about_me" class="section py-5">
-        <div class="container">
-            <h1 class="about_me_title">/ About me</h1>
-            <div class="row about-me-container">
-                <div class="col-md-8 about-me-content">
-                    <p class="about-me-text">
-                        I am currently an IT Operations Engineer on a placement scheme at <a href="https://www.mercedes-amg-hpp.com/#">Mercedes AMG HPP</a> working predominantly within the business systems unit. <br><br>
-                        I am also still undertaking my undergraduate BSc in Computer Science at <a href="https://www.shu.ac.uk">Sheffield Hallam University</a>, where I will be in my final year following the completion of my placement year. <br><br>
-                        Here are some technologies I have been working with:
-                    </p>
-                    <ul class="stack-list">
-                        <li>Python</li>
-                        <li>Java</li>
-                        <li>PHP</li>
-                        <li>JavaScript</li>
-                        <li>Git</li>
-                        <li>SQL</li>
-                        <li>Azure DevOps</li>
-                        <li>HTML</li>
-                        <li>CSS</li>
-                    </ul>
-                    <p class="about-me-text">
-                        Outside of working I am passionate about American Football, Basketball and Football, I also enjoy watching anime and anything Marvel or DC
-                    </p>
-                </div>
-                <div class="col-md-4 text-center">
-                    <img src="img/profile.jpeg" class="about-me-image img-fluid">
-                </div>
-            </div>
-            <div class="scroll-arrow">
-                <svg width="30px" height="20px">
-                    <path stroke="#ffffff" fill="none" stroke-width="2px" d="M2.000,5.000 L15.000,18.000 L28.000,5.000"></path>
-                </svg>
-            </div>
-        </div>
-    </div>
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile">
+      <a href="#hero" class="nav-link">Home</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#experience" class="nav-link">Experience</a>
+      <a href="#projects" class="nav-link">Projects</a>
+    </nav>
+  </header>
 
-    <div id="two" class="section py-5">
-        <div class="container">
-            <h1 class="about_me_title" style="margin-bottom: 20px;">/ Experience</h1>
-            <div class="nav-container">
-                <nav class="experience-nav">
-                    <ul id="menu" class="d-flex flex-column flex-md-row">
-                        <li class="curr_active"><a id="mercedes" href="#mercedes-content" style="color: #9EC8B9;">Mercedes AMG High Performance Powertrains</a></li>
-                        <li><a id="lowell" href="#lowell-content" style="color: #9EC8B9;">Lowell</a></li>
-                        <li><a id="google" href="#google-content" style="color: #9EC8B9;">Google</a></li>
-                    </ul>
-                </nav>
-            </div>
-            <div id="mercedes-content" class="resume-card">
-                <h2 class="resume-title"><b>IT Operations Engineer</b></h2>
-                <h6 class="resume-date"><b>28/05/23 - Present</b></h6>
-                <p class="resume-desc">
-                    · Managed all Python scripts within the operations team, overseeing their development, maintenance, and deployment to improve company processes.<br><br>
-                    · Spearheaded the implementation of DevOps pipelines to automate the deployment of scripts to servers, ensuring seamless execution and continuous improvement of operational workflows.<br><br>
-                    · Managed a high volume of IT support tickets, ensuring timely resolution for critical issues impacting engineering teams.
-                </p>
-            </div>
-            <div id="lowell-content" class="resume-card" style="display: none;">
-                <h2 class="resume-title"><b>Technical Business Analyst</b></h2>
-                <h6 class="resume-date"><b>05/06/2023 – 18/08/2023</b></h6>
-                <p class="resume-desc">
-                    · Orchestrated Agile sprint ceremonies, fostering collaborative teamwork and optimizing project efficiency.<br><br>
-                    · Engaged in pair programming to resolve intricate bug tickets, enhancing problem-solving skills and promoting knowledge exchange.<br><br>
-                    · Explored diverse IT sectors including Development, Testing, Architecture, and RPA, contributing significantly to projects and gaining holistic insights into technological integration and operational dynamics.
-                </p>
-            </div>
-            <div id="google-content" class="resume-card" style="display: none;">
-                <h2 class="resume-title"><b>Hackathon Attendee</b></h2>
-                <h6 class="resume-date"><b>06/10/23 - 09/10/23</b></h6>
-                <p class="resume-desc">
-                    · Distinguished participant at the Google BGN Hackathon, contributing to the development of BuddyUp, an innovative application for university students, using Flask and SQLAlchemy for scalable backend infrastructure, and JavaScript with Material-UI for a dynamic frontend.<br><br>
-                    · Integrated Google NLP API to analyze sentiment and entities in student profiles for interest-based matching, and Skiddle API for real-time event information, enhancing user engagement through advanced natural language processing and comprehensive event integration.<br><br>
-                    · Led development efforts, ensuring seamless integration of APIs and prioritizing UX aesthetics and functionality.
-                </p>
-            </div>
-            <div class="scroll-arrow">
-                <svg width="30px" height="20px">
-                    <path stroke="#ffffff" fill="none" stroke-width="2px" d="M2.000,5.000 L15.000,18.000 L28.000,5.000"></path>
-                </svg>
-            </div>
-        </div>
-    </div>
+  <main>
+    <section class="hero" id="hero">
+      <div class="hero-glow hero-glow-a" aria-hidden="true"></div>
+      <div class="hero-glow hero-glow-b" aria-hidden="true"></div>
+      <div class="hero-glow hero-glow-c" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <h1 class="hero-title" id="hero-title"></h1>
+        <p class="hero-subtitle reveal" id="hero-subtitle">I build and run the platforms other engineers ship on.</p>
+        <a href="mailto:davidarisani@gmail.com" class="btn btn-glass reveal" id="hero-cta">Say Hi!</a>
+      </div>
+      <div class="hero-chip reveal" id="hero-chip"><b>AWS</b>&nbsp;· Kubernetes · Terraform</div>
+      <div class="scroll-cue" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+    </section>
 
-    <div id="three" class="section py-5">
-        <div class="container">
-            <h1 class="about_me_title" style="margin-bottom: 20px;">/ Projects</h1>
-            <div class="nav-container">
-                <nav class="project-nav">
-                    <ul id="proj_menu" class="d-flex flex-column flex-md-row">
-                        <li class="proj_curr_active"><a id="spotify" href="#spotify-content" style="color: #9EC8B9;">Spotify Monthly Wrapped</a></li>
-                        <li><a id="actemium" href="#actemium-content" style="color: #9EC8B9;">Actemium Engineer Appraisal System</a></li>
-                    </ul>
-                </nav>
-            </div>
-            <div id="spotify-content" class="project-card">
-                <h2 class="resume-title"><b>Flask, Spotify API, HTML, CSS</b></h2>
-                <h6 class="resume-date"><b><a href="https://github.com/Adam-Infnty/Wrapped_Weekly">See Project</a></b></h6>
-                <p class="resume-desc">
-                    · Leveraged my love of music and technology to create a monthly breakdown of a user's most listened to artists and tracks with 30 seconds snippets of the top tracks.<br><br>
-                    · Utilized the Spotify API to extract JSON data which can be used to display varied information in regard to Artists, Tracks, Users, and Playlists.<br><br>
-                    · Used Flask to create a backend server which can be used to display the information and HTML, CSS, and JavaScript to create a clean and aesthetically pleasing User interface.
-                </p>
-            </div>
-            <div id="actemium-content" class="project-card" style="display: none;">
-                <h2 class="resume-title"><b>HTML, CSS, JavaScript, MongoDB, next.js</b></h2>
-                <h6 class="resume-date"><b>Project is owned by company</b></h6>
-                <p class="resume-desc">
-                    · Engineered an advanced interactive appraisal platform for VINCI Energies (Actemium), transitioning from paper-based processes to an online system.<br><br>
-                    · Utilized MongoDB for robust storage and seamless retrieval of appraisal data.<br><br>
-                    · Employed the Model-View-Controller (MVC) architectural pattern for optimal maintainability and scalability.<br><br>
-                    · Implemented dynamic bar charts and tabular representations using JavaScript for intuitive data visualization.<br><br>
-                    · Enhanced efficiency and resource utilization through digital transformation.
-                </p>
-            </div>
+    <section class="section" id="about">
+      <div class="section-inner about-grid">
+        <div class="about-content reveal">
+          <h2 class="section-title">/ About</h2>
+          <p class="body-text">
+            I'm currently a DevOps Engineer at <a href="https://www.accenture.com">Accenture</a>, where I manage live production infrastructure across Kubernetes (EKS), AWS, and Terraform — from cluster upgrades to CI/CD pipeline reliability and security remediation for enterprise-scale platforms.
+          </p>
+          <p class="body-text">
+            I hold a First Class BSc in Computer Science, with a year in industry, from <a href="https://www.shu.ac.uk">Sheffield Hallam University</a>.
+          </p>
+          <p class="body-text">Tools I work with day to day:</p>
+          <ul class="chip-list">
+            <li class="chip">AWS</li>
+            <li class="chip accent-violet">Kubernetes (EKS)</li>
+            <li class="chip">Terraform</li>
+            <li class="chip">Docker</li>
+            <li class="chip">CI/CD</li>
+            <li class="chip">GitHub Actions</li>
+            <li class="chip">Python</li>
+            <li class="chip">PowerShell</li>
+            <li class="chip">Incident Management</li>
+            <li class="chip">Automation</li>
+            <li class="chip accent-pink">Security Compliance</li>
+          </ul>
+          <p class="body-text">
+            Outside of work I'm passionate about American Football, Basketball and Football, and I enjoy anime and anything Marvel or DC.
+          </p>
         </div>
-    </div>
+        <div class="about-photo reveal">
+          <picture>
+            <source srcset="assets/img/pro_pic.webp" type="image/webp">
+            <img src="assets/img/pro_pic.jpg" alt="David Ani" class="profile-img" width="600" height="800" loading="lazy">
+          </picture>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="section-inner">
+        <h2 class="section-title reveal">/ Experience</h2>
+        <ol class="timeline">
+          <li class="timeline-item reveal">
+            <div class="timeline-card">
+              <div class="timeline-head">
+                <h3 class="role-title">DevOps Engineer</h3>
+                <span class="role-org">Accenture</span>
+                <span class="role-date">Nov 2025 – Present</span>
+              </div>
+              <ul class="role-desc">
+                <li>Managed live production services across Kubernetes (EKS), AWS, and Terraform, diagnosing and resolving alerts to maintain platform stability.</li>
+                <li>Delivered EKS cluster upgrades and ElastiCache maintenance, ensuring minimal disruption and alignment with best practices.</li>
+                <li>Implemented production Kubernetes configuration changes to improve performance, reliability, and consistency.</li>
+                <li>Led EC2 AMI remediation, ensuring compliance with the latest security and patching standards.</li>
+                <li>Partnered with Tenable to identify and remediate infrastructure vulnerabilities.</li>
+                <li>Resolved GitHub Actions CI/CD pipeline issues, improving deployment reliability and reducing release friction.</li>
+              </ul>
+            </div>
+          </li>
+          <li class="timeline-item reveal">
+            <div class="timeline-card">
+              <div class="timeline-head">
+                <h3 class="role-title">Machine Learning Engineer</h3>
+                <span class="role-org">Accenture</span>
+                <span class="role-date">Feb 2025 – Jun 2025</span>
+              </div>
+              <ul class="role-desc">
+                <li>Built and deployed a computer vision model for retail loss prevention using custom datasets.</li>
+                <li>Performed the full ML lifecycle: data annotation, preprocessing, model training, and evaluation.</li>
+                <li>Optimised model performance to improve accuracy and reliability in real-world scenarios.</li>
+                <li>Deployed the solution for live testing, integrating alerting for detected incidents.</li>
+              </ul>
+            </div>
+          </li>
+          <li class="timeline-item reveal">
+            <div class="timeline-card">
+              <div class="timeline-head">
+                <h3 class="role-title">IT Operations Engineer</h3>
+                <span class="role-org">Mercedes AMG HPP</span>
+                <span class="role-date">Aug 2023 – Sep 2024</span>
+              </div>
+              <ul class="role-desc">
+                <li>Automated infrastructure processes by migrating legacy scripts to Azure and implementing CI/CD pipelines.</li>
+                <li>Developed Python and PowerShell scripts to streamline operational tasks and reduce manual effort.</li>
+                <li>Delivered rapid incident resolution (Tier 1 support), improving SLA performance and user experience.</li>
+                <li>Executed network configuration and port patching across mission-critical environments, including Formula 1 operations.</li>
+              </ul>
+            </div>
+          </li>
+          <li class="timeline-item reveal">
+            <div class="timeline-card">
+              <div class="timeline-head">
+                <h3 class="role-title">Backend Engineer</h3>
+                <span class="role-org">Google BGN Hackathon</span>
+                <span class="role-date">Oct 2024 – Nov 2024</span>
+              </div>
+              <ul class="role-desc">
+                <li>Developed BuddyUp, a student-matching platform recognised as a standout submission.</li>
+                <li>Built scalable backend services and integrated Google NLP APIs for sentiment and entity analysis.</li>
+                <li>Delivered a responsive UI using JavaScript and Material UI, focused on usability and accessibility.</li>
+                <li>Applied RESTful API design and collaborated within an Agile team using version control.</li>
+              </ul>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="section-inner">
+        <h2 class="section-title reveal">/ Projects</h2>
+        <div class="project-grid">
+          <article class="project-card reveal">
+            <h3 class="role-title">Spotify Monthly Wrapped</h3>
+            <p class="role-org">Flask · Spotify API · HTML · CSS</p>
+            <p class="body-text">
+              A monthly breakdown of a user's most-listened artists and tracks, with 30-second snippets of top tracks. Uses the Spotify API to pull artist, track, and playlist data, served through a Flask backend.
+            </p>
+            <a href="https://github.com/Adam-Infnty/Wrapped_Weekly" class="project-link" target="_blank" rel="noopener">See project →</a>
+          </article>
+          <article class="project-card reveal">
+            <h3 class="role-title">Actemium Engineer Appraisal System</h3>
+            <p class="role-org">HTML · CSS · JavaScript · MongoDB · Next.js</p>
+            <p class="body-text">
+              An interactive appraisal platform for VINCI Energies (Actemium), replacing a paper-based process. Built on MongoDB with an MVC architecture and dynamic charting for appraisal data.
+            </p>
+            <span class="project-link project-link-muted">Project owned by company</span>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>David Ani — <a href="mailto:davidarisani@gmail.com">davidarisani@gmail.com</a></p>
+  </footer>
+
+  <script src="assets/js/script.js" type="module"></script>
 </body>
-<!-- Optional JavaScript -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<script src="script.js"></script>
 </html>
