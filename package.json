@@ -1,0 +1,24 @@
+{
+  "name": "personal-website",
+  "private": true,
+  "description": "David Ani's personal website (david-ani.com)",
+  "scripts": {
+    "lint:html": "html-validate index.html",
+    "lint:css": "stylelint \"assets/css/**/*.css\"",
+    "lint:js": "eslint assets/js scripts",
+    "check:assets": "node scripts/check-assets.mjs",
+    "lint": "npm run lint:html && npm run lint:css && npm run lint:js",
+    "test": "npm run lint && npm run check:assets"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.11.0",
+    "globals": "^17.12.0",
+    "html-validate": "^11.16.1",
+    "stylelint": "^17.15.0",
+    "stylelint-config-standard": "^40.0.0"
+  },
+  "engines": {
+    "node": "^22.22.0 || >=24.8.0"
+  }
+}
