@@ -1,0 +1,25 @@
+{
+  "extends": [
+    "stylelint-config-standard"
+  ],
+  "ignoreFiles": [
+    "node_modules/**"
+  ],
+  "rules": {
+    "property-no-vendor-prefix": [
+      true,
+      {
+        "ignoreProperties": [
+          "-webkit-backdrop-filter",
+          "-webkit-mask-image"
+        ]
+      }
+    ],
+    "color-function-notation": "legacy",
+    "alpha-value-notation": "number",
+    "color-hex-length": null,
+    "font-family-name-quotes": "always-where-recommended",
+    "media-feature-range-notation": "prefix",
+    "color-function-alias-notation": null
+  }
+}

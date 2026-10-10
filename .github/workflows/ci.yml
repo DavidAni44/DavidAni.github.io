@@ -1,24 +1,48 @@
-name: Test Site
+name: CI
 
 on:
   pull_request:
-    branches:
-      - main
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
 
-jobs: 
-  test:
+# A newer push to the same PR/branch supersedes the older run.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  # This job's name is the required status check for merging into main.
+  # Keep the name stable: renaming it detaches it from the branch ruleset.
+  checks:
+    name: Checks
     runs-on: ubuntu-latest
-    container: 
-      image: node:20
-    steps: 
-      - name: Checkout code
-        uses: actions/checkout@v3
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
+
+      - name: Validate HTML
+        run: npm run lint:html
 
       - name: Lint CSS
         run: npm run lint:css
 
       - name: Lint JS
         run: npm run lint:js
+
+      - name: Check referenced files exist
+        run: npm run check:assets
